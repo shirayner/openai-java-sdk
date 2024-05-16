@@ -134,7 +134,7 @@ public enum CompletionModel
             null,
             32768),
 
-     GPT_4o("gpt-4o",
+     GPT_4O("gpt-4o",
             "most advanced, multimodal flagship model that’s cheaper and faster than GPT-4 Turbo. Currently points to gpt-4o-2024-05-13",
             null,
             128000),
