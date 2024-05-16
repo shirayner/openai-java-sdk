@@ -84,6 +84,7 @@ public class ChatEntity
                 case GPT_4_32K:
                 case GPT_4_0613:
                 case GPT_4_32K_0613:
+                case GPT_4o:
                 case TEXT_DAVINCI_002:
                 case TEXT_DAVINCI_003:
                 case CODE_DAVINCI_002:
