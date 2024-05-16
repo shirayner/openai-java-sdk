@@ -17,6 +17,7 @@ import org.devlive.sdk.platform.google.entity.ChatEntity;
 import org.devlive.sdk.platform.google.interceptor.GoogleInterceptor;
 import org.devlive.sdk.platform.google.model.GenerativeModel;
 import org.devlive.sdk.platform.google.model.VersionModel;
+import org.devlive.sdk.platform.google.response.ChatResponse;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
@@ -85,7 +86,7 @@ public class GoogleClient
                 .create(GoogleApi.class);
     }
 
-    public Object createChatCompletions(ChatEntity configure)
+    public ChatResponse createChatCompletions(ChatEntity configure)
     {
         String url = ProviderUtils.getUrl(provider, UrlModel.FETCH_CHAT_COMPLETIONS);
         return this.api.fetchChatCompletions(url, configure)
