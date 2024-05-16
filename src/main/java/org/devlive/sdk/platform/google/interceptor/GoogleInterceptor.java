@@ -39,7 +39,7 @@ public class GoogleInterceptor
         List<String> pathSegments = Lists.newArrayList();
         httpUrl = HttpUrlUtils.removePathSegment(httpUrl);
         // https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY
-        pathSegments.add(0, String.join(":", getModel(), "generateContent"));
+        pathSegments.add(0, String.join(":", getModel(), stream ? "streamGenerateContent" : "generateContent"));
         pathSegments.add(0, "models");
         pathSegments.add(0, version.getVersion());
         httpUrl = httpUrl.newBuilder()
