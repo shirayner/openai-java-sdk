@@ -5,13 +5,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.sse.EventSource;
+import okhttp3.sse.EventSourceListener;
+import okhttp3.sse.EventSources;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.devlive.sdk.common.DefaultClient;
 import org.devlive.sdk.common.exception.ParamException;
+import org.devlive.sdk.common.exception.RequestException;
 import org.devlive.sdk.common.utils.ValidateUtils;
+import org.devlive.sdk.openai.mixin.IgnoreUnknownMixin;
 import org.devlive.sdk.openai.model.ProviderModel;
 import org.devlive.sdk.openai.model.UrlModel;
+import org.devlive.sdk.openai.utils.MultipartBodyUtils;
 import org.devlive.sdk.openai.utils.ProviderUtils;
 import org.devlive.sdk.platform.google.entity.ChatEntity;
 import org.devlive.sdk.platform.google.interceptor.GoogleInterceptor;
@@ -39,6 +47,7 @@ public class GoogleClient
     private String model;
     private VersionModel version;
     private GoogleApi api;
+    private EventSourceListener listener;
 
     private GoogleClient(GoogleClientBuilder builder)
     {
@@ -68,12 +77,20 @@ public class GoogleClient
         }
         this.model = builder.model;
 
+        if (ObjectUtils.isEmpty(builder.listener)) {
+            builder.listener(null);
+        }
+        super.listener = builder.listener;
+        this.listener = builder.listener;
+
         if (ObjectUtils.isEmpty(builder.client)) {
             builder.client(null);
         }
 
         super.client = builder.client;
+        this.client = builder.client;
         super.apiHost = builder.apiHost;
+        this.apiHost = builder.apiHost;
         super.provider = ProviderModel.GOOGLE_GEMINI;
 
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
@@ -89,8 +106,36 @@ public class GoogleClient
     public ChatResponse createChatCompletions(ChatEntity configure)
     {
         String url = ProviderUtils.getUrl(provider, UrlModel.FETCH_CHAT_COMPLETIONS);
+        if (ObjectUtils.isNotEmpty(this.listener)) {
+            this.createEventSource(url, configure);
+            return null;
+        }
+
         return this.api.fetchChatCompletions(url, configure)
                 .blockingGet();
+    }
+
+    private ObjectMapper createObjectMapper()
+    {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.addMixIn(Object.class, IgnoreUnknownMixin.class);
+        return objectMapper;
+    }
+
+    private void createEventSource(String url, Object configure)
+    {
+        try {
+            EventSource.Factory factory = EventSources.createFactory(this.client);
+            ObjectMapper mapper = this.createObjectMapper();
+            Request request = new Request.Builder()
+                    .url(String.join("/", this.apiHost, url))
+                    .post(RequestBody.create(MultipartBodyUtils.JSON, mapper.writeValueAsString(configure)))
+                    .build();
+            factory.newEventSource(request, this.listener);
+        }
+        catch (Exception e) {
+            throw new RequestException(String.format("Failed to create event source: %s", e.getMessage()));
+        }
     }
 
     public static class GoogleClientBuilder
@@ -140,6 +185,9 @@ public class GoogleClient
             interceptor.setApiKey(apiKey);
             interceptor.setVersion(version);
             interceptor.setModel(model);
+            if (listener != null) {
+                interceptor.setStream(true);
+            }
             client = client.newBuilder()
                     .addInterceptor(interceptor)
                     .build();

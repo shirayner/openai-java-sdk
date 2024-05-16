@@ -19,6 +19,8 @@ public class GoogleInterceptor
 {
     @Setter
     private VersionModel version;
+    @Setter
+    private Boolean stream = false;
 
     public GoogleInterceptor()
     {
@@ -46,6 +48,13 @@ public class GoogleInterceptor
                 .addPathSegments(String.join("/", pathSegments))
                 .addQueryParameter("key", this.getApiKey())
                 .build();
+
+        if (stream) {
+            httpUrl = httpUrl.newBuilder()
+                    .addQueryParameter("alt", "sse")
+                    .build();
+        }
+
         log.info("Google interceptor request url {}", httpUrl);
 
         return original.newBuilder()

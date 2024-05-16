@@ -1,4 +1,4 @@
-package org.devlive.sdk.openai.listener;
+package org.devlive.sdk.common.listener;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
