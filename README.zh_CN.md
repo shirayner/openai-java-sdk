@@ -43,7 +43,7 @@
 
 ```java
 <properties>
-    <openai.version>2024.01.1</openai.version>
+    <openai.version>2024.01.2</openai.version>
 </properties>
 
 <dependencies>
