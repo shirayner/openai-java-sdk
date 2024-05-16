@@ -1,6 +1,6 @@
 package org.devlive.sdk.openai.entity;
 
-import org.devlive.sdk.openai.exception.ParamException;
+import org.devlive.sdk.common.exception.ParamException;
 import org.devlive.sdk.openai.model.ImageSizeModel;
 import org.junit.Assert;
 import org.junit.Test;

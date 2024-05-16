@@ -6,3 +6,5 @@ pom.xml.versionsBackup
 
 BaseTest.java
 site/
+
+application.properties

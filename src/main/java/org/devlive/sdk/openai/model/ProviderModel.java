@@ -21,5 +21,7 @@ public enum ProviderModel
      * Google PaLM
      * https://makersuite.google.com
      */
-    GOOGLE_PALM
+    @Deprecated
+    GOOGLE_PALM,
+    GOOGLE_GEMINI
 }

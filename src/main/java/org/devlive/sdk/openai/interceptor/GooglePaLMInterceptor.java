@@ -5,13 +5,18 @@ import lombok.extern.slf4j.Slf4j;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 import org.apache.commons.lang3.StringUtils;
-import org.devlive.sdk.openai.exception.ParamException;
+import org.devlive.sdk.common.exception.ParamException;
+import org.devlive.sdk.common.interceptor.DefaultInterceptor;
 import org.devlive.sdk.openai.model.CompletionModel;
 import org.devlive.sdk.openai.utils.EnumsUtils;
-import org.devlive.sdk.openai.utils.HttpUrlUtils;
+import org.devlive.sdk.common.utils.HttpUrlUtils;
 
 import java.util.List;
 
+/**
+ * Officially obsolete and not recommended for use
+ */
+@Deprecated
 @Slf4j
 public class GooglePaLMInterceptor
         extends DefaultInterceptor

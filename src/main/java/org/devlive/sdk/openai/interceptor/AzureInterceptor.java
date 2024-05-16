@@ -4,7 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 import org.apache.commons.lang3.StringUtils;
-import org.devlive.sdk.openai.exception.ParamException;
+import org.devlive.sdk.common.exception.ParamException;
+import org.devlive.sdk.common.interceptor.DefaultInterceptor;
 
 import java.util.List;
 

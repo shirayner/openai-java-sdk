@@ -1,7 +1,7 @@
 package org.devlive.sdk.openai;
 
 import org.devlive.sdk.openai.entity.FineTuningEntity;
-import org.devlive.sdk.openai.exception.RequestException;
+import org.devlive.sdk.common.exception.RequestException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

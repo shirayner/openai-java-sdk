@@ -1,4 +1,4 @@
-package org.devlive.sdk.openai.exception;
+package org.devlive.sdk.common.exception;
 
 import lombok.Getter;
 
