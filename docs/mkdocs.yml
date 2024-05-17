@@ -21,7 +21,6 @@ theme:
   name: material
   custom_dir: overrides
 
-  language: en
   features:
     - content.code.annotate
     - content.tabs.link
@@ -64,7 +63,7 @@ markdown_extensions:
 plugins:
   - i18n:
       reconfigure_material: true
-      default_language: en
+      default_language: zh
       languages:
         - locale: zh
           name: Chinese (Simplified)
@@ -111,6 +110,9 @@ nav:
       - Google PaLM:
           - reference/google_palm/completions.md
           - reference/google_palm/chat.md
+      - Google:
+          - Gemini:
+              - reference/google/gemini/chat/home.md
   - NavReleaseNote:
       - release/latest.md
       - release/2024.01.1.md

@@ -52,6 +52,32 @@ public class GoogleClientTest
     }
 
     @Test
+    public void testAutoClose()
+    {
+        try (GoogleClient client = GoogleClient.builder()
+                .apiKey(token)
+                .build()) {
+            PartEntity part = PartEntity.builder()
+                    .text("Hello, Open AI Java SDK!")
+                    .build();
+            ObjectEntity object = ObjectEntity.builder()
+                    .parts(Lists.newArrayList(part))
+                    .build();
+            ChatEntity chat = ChatEntity.builder()
+                    .contents(Lists.newArrayList(object))
+                    .build();
+
+            ChatResponse response = client.createChatCompletions(chat);
+            response.getCandidates()
+                    .forEach(item -> item.getContent()
+                            .getParts()
+                            .forEach(value -> log.info(value.getText())));
+
+            Assert.assertNotNull(response);
+        }
+    }
+
+    @Test
     public void testContinuousChat()
     {
         List<ObjectEntity> contents = Lists.newArrayList();
