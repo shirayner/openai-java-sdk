@@ -34,6 +34,9 @@
     </a>&nbsp;
     <a href="https://developers.generativeai.google/products/palm" target="_blank">
         <img src="images/google-palm.png" alt="Google PaLM" height="80" />
+    </a>&nbsp;
+    <a href="https://ai.google.dev/gemini-api" target="_blank">
+        <img src="images/google-gemini.png" alt="Google Gemini" height="100" />
     </a>
 </div>
 
