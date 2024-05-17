@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import org.devlive.sdk.openai.entity.ChatEntity;
 import org.devlive.sdk.openai.entity.CompletionEntity;
 import org.devlive.sdk.openai.entity.MessageEntity;
-import org.devlive.sdk.openai.exception.RequestException;
+import org.devlive.sdk.common.exception.RequestException;
 import org.devlive.sdk.openai.model.CompletionModel;
 import org.devlive.sdk.openai.model.ProviderModel;
 import org.junit.Assert;

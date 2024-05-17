@@ -1,4 +1,4 @@
-package org.devlive.sdk.openai;
+package org.devlive.sdk.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
@@ -12,6 +12,7 @@ import okhttp3.sse.EventSource;
 import okhttp3.sse.EventSourceListener;
 import okhttp3.sse.EventSources;
 import org.apache.commons.lang3.ObjectUtils;
+import org.devlive.sdk.common.exception.RequestException;
 import org.devlive.sdk.openai.entity.AudioEntity;
 import org.devlive.sdk.openai.entity.ChatEntity;
 import org.devlive.sdk.openai.entity.CompletionEntity;
@@ -28,7 +29,6 @@ import org.devlive.sdk.openai.entity.beta.AssistantsFileEntity;
 import org.devlive.sdk.openai.entity.beta.QueryEntity;
 import org.devlive.sdk.openai.entity.beta.ThreadEntity;
 import org.devlive.sdk.openai.entity.google.MessageEntity;
-import org.devlive.sdk.openai.exception.RequestException;
 import org.devlive.sdk.openai.mixin.IgnoreUnknownMixin;
 import org.devlive.sdk.openai.model.ProviderModel;
 import org.devlive.sdk.openai.model.UrlModel;

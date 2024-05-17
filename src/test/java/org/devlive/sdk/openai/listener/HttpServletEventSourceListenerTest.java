@@ -3,6 +3,7 @@ package org.devlive.sdk.openai.listener;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.devlive.sdk.common.listener.HttpServletEventSourceListener;
 import org.devlive.sdk.openai.OpenAiClient;
 import org.devlive.sdk.openai.entity.CompletionEntity;
 import org.junit.Test;

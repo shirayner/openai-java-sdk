@@ -2,10 +2,11 @@ package org.devlive.sdk.openai;
 
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
+import org.devlive.sdk.ResourceUtils;
+import org.devlive.sdk.common.listener.ConsoleEventSourceListener;
 import org.devlive.sdk.openai.entity.ChatEntity;
 import org.devlive.sdk.openai.entity.CompletionEntity;
 import org.devlive.sdk.openai.entity.MessageEntity;
-import org.devlive.sdk.openai.listener.ConsoleEventSourceListener;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,7 +27,7 @@ public class StreamClientTest
                 .countDownLatch(countDownLatch)
                 .build();
         client = OpenAiClient.builder()
-                .apiKey(System.getProperty("openai.token"))
+                .apiKey(ResourceUtils.getValue("openai.token"))
                 .listener(listener)
                 .build();
     }

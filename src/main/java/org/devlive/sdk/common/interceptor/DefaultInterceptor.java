@@ -1,4 +1,4 @@
-package org.devlive.sdk.openai.interceptor;
+package org.devlive.sdk.common.interceptor;
 
 import com.google.common.base.Preconditions;
 import lombok.Getter;
@@ -11,8 +11,8 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okio.Buffer;
 import org.apache.commons.lang3.ObjectUtils;
-import org.devlive.sdk.openai.exception.AuthorizedException;
-import org.devlive.sdk.openai.exception.RequestException;
+import org.devlive.sdk.common.exception.AuthorizedException;
+import org.devlive.sdk.common.exception.RequestException;
 import org.devlive.sdk.openai.response.DefaultResponse;
 import org.devlive.sdk.openai.utils.JsonUtils;
 
@@ -44,7 +44,7 @@ public abstract class DefaultInterceptor
         if (ObjectUtils.isNotEmpty(requestBody)) {
             Buffer buffer = new Buffer();
             requestBody.writeTo(buffer);
-            log.debug("Request body {}", buffer.readUtf8());
+            log.info("Request body {}", buffer.readUtf8());
         }
 
         Response response = chain.proceed(request);

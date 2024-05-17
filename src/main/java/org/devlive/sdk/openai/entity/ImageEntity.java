@@ -12,7 +12,7 @@ import okhttp3.RequestBody;
 import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.devlive.sdk.openai.exception.ParamException;
+import org.devlive.sdk.common.exception.ParamException;
 import org.devlive.sdk.openai.model.ImageFormatModel;
 import org.devlive.sdk.openai.model.ImageSizeModel;
 import org.devlive.sdk.openai.utils.MultipartBodyUtils;

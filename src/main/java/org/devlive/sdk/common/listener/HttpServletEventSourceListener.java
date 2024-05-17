@@ -1,4 +1,4 @@
-package org.devlive.sdk.openai.listener;
+package org.devlive.sdk.common.listener;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -9,7 +9,7 @@ import okhttp3.Response;
 import okhttp3.sse.EventSource;
 import okhttp3.sse.EventSourceListener;
 import org.apache.commons.lang3.ObjectUtils;
-import org.devlive.sdk.openai.exception.ParamException;
+import org.devlive.sdk.common.exception.ParamException;
 import org.devlive.sdk.openai.response.CompleteResponse;
 import org.devlive.sdk.openai.utils.JsonUtils;
 

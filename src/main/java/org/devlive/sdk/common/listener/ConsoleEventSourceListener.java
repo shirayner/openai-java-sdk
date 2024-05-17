@@ -1,4 +1,4 @@
-package org.devlive.sdk.openai.listener;
+package org.devlive.sdk.common.listener;
 
 import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;

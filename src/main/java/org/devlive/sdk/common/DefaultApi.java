@@ -1,4 +1,4 @@
-package org.devlive.sdk.openai;
+package org.devlive.sdk.common;
 
 import io.reactivex.Single;
 import okhttp3.MultipartBody;

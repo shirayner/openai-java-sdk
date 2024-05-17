@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
-import org.devlive.sdk.openai.exception.ParamException;
+import org.devlive.sdk.common.exception.ParamException;
 
 import java.util.List;
 

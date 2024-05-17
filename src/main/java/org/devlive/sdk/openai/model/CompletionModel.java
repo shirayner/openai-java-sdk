@@ -64,6 +64,7 @@ public enum CompletionModel
             "Most capable model in the GPT-3 series. Can perform any task the other GPT-3 models can, often with higher quality, longer output and better instruction-following. It can process up to 4,000 tokens per request.",
             "Complex intent, cause and effect, creative generation, search, summarization for audience",
             4097),
+    @Deprecated
     TEXT_DAVINCI_003("text-davinci-003",
             "Most capable model in the GPT-3 series. Can perform any task the other GPT-3 models can, often with higher quality, longer output and better instruction-following. It can process up to 4,000 tokens per request.",
             "Complex intent, cause and effect, creative generation, search, summarization for audience",
@@ -134,7 +135,7 @@ public enum CompletionModel
             null,
             32768),
 
-     GPT_4O("gpt-4o",
+    GPT_4O("gpt-4o",
             "most advanced, multimodal flagship model that’s cheaper and faster than GPT-4 Turbo. Currently points to gpt-4o-2024-05-13",
             null,
             128000),

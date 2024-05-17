@@ -1,4 +1,4 @@
-package org.devlive.sdk.openai.utils;
+package org.devlive.sdk.common.utils;
 
 import okhttp3.HttpUrl;
 

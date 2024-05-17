@@ -1,7 +1,7 @@
 package org.devlive.sdk.openai.entity;
 
 import com.google.common.collect.Lists;
-import org.devlive.sdk.openai.exception.ParamException;
+import org.devlive.sdk.common.exception.ParamException;
 import org.devlive.sdk.openai.model.ModerationModel;
 import org.junit.Assert;
 import org.junit.Test;

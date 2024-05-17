@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import okhttp3.RequestBody;
 import org.apache.commons.lang3.ObjectUtils;
-import org.devlive.sdk.openai.exception.ParamException;
+import org.devlive.sdk.common.exception.ParamException;
 import org.devlive.sdk.openai.model.PurposeModel;
 import org.devlive.sdk.openai.utils.MultipartBodyUtils;
 

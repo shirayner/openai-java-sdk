@@ -1,6 +1,6 @@
 package org.devlive.sdk.openai.utils;
 
-import org.devlive.sdk.openai.exception.RequestException;
+import org.devlive.sdk.common.exception.RequestException;
 import org.devlive.sdk.openai.model.ProviderModel;
 import org.devlive.sdk.openai.model.UrlModel;
 
