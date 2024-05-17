@@ -1,5 +1,5 @@
 ---
-title: Chat
+title: Chat <span style="font-weight:bold; margin-left:10px; color:red;">New</span>
 ---
 
 > 支持 Google Gemini，产品地址: https://ai.google.dev/gemini-api
