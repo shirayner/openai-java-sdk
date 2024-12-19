@@ -185,6 +185,13 @@ public class OpenAiClient
             return this;
         }
 
+
+        public OpenAiClientBuilder model(String model)
+        {
+            this.model = model;
+            return this;
+        }
+
         private String getDefaultHost()
         {
             if (ObjectUtils.isEmpty(this.provider)) {
