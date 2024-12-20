@@ -80,8 +80,7 @@ public abstract class DefaultClient
             configure.setStream(true);
             this.createEventSource(url, configure);
             return null;
-        }
-        else {
+        } else {
             return this.api.fetchCompletions(url, configure)
                     .blockingGet();
         }
@@ -111,8 +110,7 @@ public abstract class DefaultClient
             configure.setStream(true);
             this.createEventSource(url, configure);
             return null;
-        }
-        else {
+        } else {
             return this.api.fetchChatCompletions(url, configure)
                     .blockingGet();
         }
@@ -266,7 +264,7 @@ public abstract class DefaultClient
     }
 
     public AssistantsFileEntity createAssistantsFile(String fileId,
-            String assistantId)
+                                                     String assistantId)
     {
         String url = String.format(ProviderUtils.getUrl(provider, UrlModel.FETCH_ASSISTANTS_FILES), assistantId);
         Map<String, String> configure = Maps.newHashMap();
@@ -384,8 +382,7 @@ public abstract class DefaultClient
                     .post(RequestBody.create(MultipartBodyUtils.JSON, mapper.writeValueAsString(configure)))
                     .build();
             factory.newEventSource(request, this.listener);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new RequestException(String.format("Failed to create event source: %s", e.getMessage()));
         }
     }

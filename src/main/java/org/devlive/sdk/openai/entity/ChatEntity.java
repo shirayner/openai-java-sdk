@@ -99,11 +99,11 @@ public class ChatEntity
             return this;
         }
 
-      public ChatEntityBuilder model(String model)
-      {
-        this.model = model;
-        return this;
-      }
+        public ChatEntityBuilder model(String model)
+        {
+            this.model = model;
+            return this;
+        }
 
         public ChatEntityBuilder temperature(Double temperature)
         {
@@ -114,23 +114,23 @@ public class ChatEntity
             return this;
         }
 
-      public ChatEntityBuilder maxTokens(Integer maxTokens)
-      {
-        CompletionModel completionModel = EnumsUtils.getCompleteModel(this.model);
-        if (Objects.isNull(completionModel)) {
-          this.maxTokens = maxTokens;
-          return this;
-        } else {
-          if (ObjectUtils.isNotEmpty(this.model)
-              && maxTokens > completionModel.getMaxTokens()) {
-            throw new ParamException(String.format(
-                "Invalid maxTokens: %s, Cannot be larger than the model default configuration %s",
-                maxTokens, completionModel.getMaxTokens()));
-          }
-          this.maxTokens = maxTokens;
-          return this;
+        public ChatEntityBuilder maxTokens(Integer maxTokens)
+        {
+            CompletionModel completionModel = EnumsUtils.getCompleteModel(this.model);
+            if (Objects.isNull(completionModel)) {
+                this.maxTokens = maxTokens;
+                return this;
+            } else {
+                if (ObjectUtils.isNotEmpty(this.model)
+                        && maxTokens > completionModel.getMaxTokens()) {
+                    throw new ParamException(String.format(
+                            "Invalid maxTokens: %s, Cannot be larger than the model default configuration %s",
+                            maxTokens, completionModel.getMaxTokens()));
+                }
+                this.maxTokens = maxTokens;
+                return this;
+            }
         }
-      }
 
         private ChatEntityBuilder stream()
         {
