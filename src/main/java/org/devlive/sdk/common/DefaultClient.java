@@ -80,7 +80,8 @@ public abstract class DefaultClient
             configure.setStream(true);
             this.createEventSource(url, configure);
             return null;
-        } else {
+        }
+        else {
             return this.api.fetchCompletions(url, configure)
                     .blockingGet();
         }
@@ -110,7 +111,8 @@ public abstract class DefaultClient
             configure.setStream(true);
             this.createEventSource(url, configure);
             return null;
-        } else {
+        }
+        else {
             return this.api.fetchChatCompletions(url, configure)
                     .blockingGet();
         }
@@ -382,7 +384,8 @@ public abstract class DefaultClient
                     .post(RequestBody.create(MultipartBodyUtils.JSON, mapper.writeValueAsString(configure)))
                     .build();
             factory.newEventSource(request, this.listener);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             throw new RequestException(String.format("Failed to create event source: %s", e.getMessage()));
         }
     }

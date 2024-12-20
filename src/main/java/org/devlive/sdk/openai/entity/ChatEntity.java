@@ -120,7 +120,8 @@ public class ChatEntity
             if (Objects.isNull(completionModel)) {
                 this.maxTokens = maxTokens;
                 return this;
-            } else {
+            }
+            else {
                 if (ObjectUtils.isNotEmpty(this.model)
                         && maxTokens > completionModel.getMaxTokens()) {
                     throw new ParamException(String.format(
