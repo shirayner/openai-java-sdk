@@ -185,7 +185,6 @@ public class OpenAiClient
             return this;
         }
 
-
         public OpenAiClientBuilder model(String model)
         {
             this.model = model;
